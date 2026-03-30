@@ -1,3 +1,44 @@
+# Feature States
+
+Generic feature flag system supporting three environments (Editor, Debug, Production) for Unity projects.
+
+# Installation
+
+## Via Git URL
+
+Open **Window → Package Manager**, click **+**, and choose **Add package from git URL**.
+
+To install the latest version:
+```
+https://github.com/Warlander/feature-states.git
+```
+
+To install a specific release, append the tag:
+```
+https://github.com/Warlander/feature-states.git#2.0.0
+```
+
+## Via Scoped Registry
+
+Add the Warlogic registry to your `Packages/manifest.json`:
+
+```json
+{
+  "scopedRegistries": [
+    {
+      "name": "Warlogic",
+      "url": "https://upm.maciejcyranowicz.com",
+      "scopes": ["com.warlogic"]
+    }
+  ],
+  "dependencies": {
+    "com.warlogic.featurestates": "2.0.0"
+  }
+}
+```
+
+Alternatively, open **Window → Package Manager**, click **+**, choose **Add package by name**, and enter `com.warlogic.featurestates`.
+
 # Setup
 
 1. Create a `Feature` enum somewhere in the project. Assign explicit integer values starting at 1; `0` is reserved as an unset sentinel, which makes it safe to add or remove values later. Example:
