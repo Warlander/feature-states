@@ -15,7 +15,7 @@ https://github.com/Warlander/feature-states.git
 
 To install a specific release, append the tag:
 ```
-https://github.com/Warlander/feature-states.git#2.0.0
+https://github.com/Warlander/feature-states.git#2.0.1
 ```
 
 ## Via Scoped Registry
@@ -32,7 +32,7 @@ Add the Warlogic registry to your `Packages/manifest.json`:
     }
   ],
   "dependencies": {
-    "com.warlogic.featurestates": "2.0.0"
+    "com.warlogic.featurestates": "2.0.1"
   }
 }
 ```
