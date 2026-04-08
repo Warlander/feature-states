@@ -2,7 +2,16 @@
   "name": "com.warlogic.featurestates",
   "displayName": "Feature States",
   "version": "2.0.1",
+  "unity": "6000.0",
   "description": "This package allows users to configure and use feature flags that apply for different environments.\n\nCurrently supported environments:\n- production builds\n- debug builds\n- Unity editor",
+  "author": {
+    "name": "Maciej Cyranowicz",
+    "url": "https://github.com/Warlander"
+  },
+  "license": "MIT",
+  "changelogUrl": "https://github.com/Warlander/feature-states/blob/master/CHANGELOG.md",
+  "documentationUrl": "https://github.com/Warlander/feature-states/blob/master/README.md",
+  "licensesUrl": "https://github.com/Warlander/feature-states/blob/master/LICENSE",
   "repository": {
     "type": "git",
     "url": "https://github.com/Warlander/feature-states.git"
