@@ -41,7 +41,7 @@ Alternatively, open **Window → Package Manager**, click **+**, choose **Add pa
 
 # Setup
 
-1. Create a `Feature` enum somewhere in the project. Assign explicit integer values starting at 1; `0` is reserved as an unset sentinel, which makes it safe to add or remove values later. Example:
+1. Create a `Feature` enum somewhere in the project. We recommend assigning explicit integer values starting at 1 rather than 0. This avoids accidental confusion with default-initialized values and makes it safer to add or remove values later. Example:
 ```csharp
 public enum Feature
 {
@@ -51,11 +51,15 @@ public enum Feature
 }
 ```
 
-2. Create a concrete ScriptableObject subclass that extends `FeatureStateRepository<Feature>`. Include a `[CreateAssetMenu]` attribute so Unity can create the asset from the menu. Example:
+2. Create a concrete ScriptableObject subclass that extends `FeatureStateRepository<Feature>`. `FeatureStateRepository<T>` inherits from `FeatureStateRepositoryBase`, which is what the custom inspector targets. Include a `[CreateAssetMenu]` attribute so Unity can create the asset from the menu. Example:
 ```csharp
 [CreateAssetMenu(fileName = "FeatureStates", menuName = "MyProject/Feature States")]
 public class MyFeatureStateRepository : FeatureStateRepository<Feature> { }
 ```
+
+At runtime, two interfaces work together:
+- `IFeatureStateRepository<TFeature>` — provides raw per-environment toggle values (Production, Debug, Editor).
+- `IFeatureStateRetriever<TFeature>` — resolves the current runtime environment and returns the effective boolean for a feature.
 
 3. Create a `FeatureStates` asset anywhere inside a `Resources/` folder using the menu item you declared above. Open the asset in the Inspector — the custom inspector automatically syncs all enum values as rows. Configure the Production, Debug, and Editor toggles for each feature.
 
@@ -104,6 +108,11 @@ The system supports three environments, resolved automatically at runtime:
 | **Production** | Release builds |
 
 Configure which features are enabled per environment in the Inspector on your `FeatureStates` ScriptableObject.
+
+# Edge Cases
+
+- **Unknown feature** — If you query a feature that has no entry in the repository, the system logs a warning and returns `false` for all environments.
+- **Missing asset** — If `ResourceFeatureStateRepositoryRetriever` cannot find the ScriptableObject in `Resources`, `Get()` returns `null`. You should validate the repository reference before passing it to `FeatureStateRetriever`.
 
 # Adding or Removing Features
 
