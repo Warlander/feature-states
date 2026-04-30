@@ -86,6 +86,9 @@ namespace Warlogic.Features.Editor.Tests
             typeof(FeatureStateRepository<TestFeature>)
                 .GetField("_featureStates", BindingFlags.NonPublic | BindingFlags.Instance)
                 .SetValue(repo, states);
+            typeof(FeatureStateRepository<TestFeature>)
+                .GetField("_lookup", BindingFlags.NonPublic | BindingFlags.Instance)
+                .SetValue(repo, null);
         }
 
         private static FeatureStateEntry<TestFeature> MakeState(TestFeature feature, bool production)
