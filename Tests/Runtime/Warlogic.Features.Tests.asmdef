@@ -1,11 +1,21 @@
 {
     "name": "Warlogic.Features.Tests",
+    "rootNamespace": "Warlogic.Features.Tests",
     "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
         "Warlogic.Featurestates"
     ],
-    "optionalUnityReferences": [
-        "TestAssemblies"
-    ],
     "includePlatforms": [],
-    "excludePlatforms": []
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false,
+    "optionalUnityReferences": []
 }
