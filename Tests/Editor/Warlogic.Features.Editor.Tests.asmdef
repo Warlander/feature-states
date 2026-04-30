@@ -1,5 +1,5 @@
 {
-    "name": "Warlogic.Featurestates.Editor.Tests",
+    "name": "Warlogic.Features.Editor.Tests",
     "references": [
         "Warlogic.Featurestates.Editor",
         "Warlogic.Featurestates"

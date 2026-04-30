@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using Warlogic.Features;
 
-namespace Warlogic.Featurestates.Editor.Tests
+namespace Warlogic.Features.Editor.Tests
 {
     class FeatureStateRepositoryTests
     {

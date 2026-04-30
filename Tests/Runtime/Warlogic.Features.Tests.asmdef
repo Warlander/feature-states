@@ -1,5 +1,5 @@
 {
-    "name": "Warlogic.Featurestates.Tests",
+    "name": "Warlogic.Features.Tests",
     "references": [
         "Warlogic.Featurestates"
     ],
